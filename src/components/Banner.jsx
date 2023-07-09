@@ -2,9 +2,17 @@ import React from 'react';
 import Typed from 'react-typed';
 import img_15 from '../assets/images/15.jpg'
 import { Link } from 'react-router-dom';
+import ReactGA from 'react-ga'
 
 
 const Banner = () => {
+  const handleButtonClick = () => {
+    ReactGA.event({
+      category: 'Button',
+      action: 'click',
+      label: 'see_work'
+    });
+  };
   return (
     <div className=' '>
       <div
@@ -20,7 +28,7 @@ const Banner = () => {
           </div>
         <div className=" flex space-x-4 mt-10 md:mt-16 ">
           <button className="bg-[#a1d1ed] hover:bg-[#4aa9e1] text-white py-2 px-4 md:py-4 md:px-8 md:text-lg font-medium rounded">
-            <Link to='/gallery'>See Our Work</Link>
+            <Link to='/gallery' id="myButton" onClick={handleButtonClick}>See Our Work</Link>
           </button>
           <button className="bg-[#a1d1ed] hover:bg-[#4aa9e1] text-white py-2 px-5 md:py-4 md:px-9 md:text-lg font-medium rounded">
             <Link to='/contact'>Get In Touch </Link>
